@@ -1,13 +1,22 @@
 package com.scholanova.groupe2.libraryproject.entities;
 
+import java.util.Collection;
 import java.util.Date;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @SuppressWarnings("serial")
 @Table(name="user")
 @Entity(name="User")
-public class UserMO extends EntityMO {
+public class User extends AbstractEntity {
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -24,11 +33,20 @@ public class UserMO extends EntityMO {
 	private Date birthday;
 	
 	@ManyToOne
-	private AddressMO adresse;
+	@JoinColumn(name="address_id")
+	private Address address;
 	
-	@OneToOne
-	@Column(name="bank_account_id")
-	private BankAccountMO bankAccount;
+	@OneToMany
+	@JoinColumn(name="user_id")
+	private Collection<BankAccount> bankAccounts;
+
+	public Collection<BankAccount> getBankAccounts() {
+		return bankAccounts;
+	}
+
+	public void setBankAccounts(Collection<BankAccount> bankAccounts) {
+		this.bankAccounts = bankAccounts;
+	}
 
 	public Long getId() {
 		return id;
@@ -54,12 +72,8 @@ public class UserMO extends EntityMO {
 		return birthday;
 	}
 
-	public AddressMO getAdresse() {
-		return adresse;
-	}
-
-	public BankAccountMO getBankAccount() {
-		return bankAccount;
+	public Address getAddress() {
+		return address;
 	}
 
 	public void setId(Long id) {
@@ -86,12 +100,8 @@ public class UserMO extends EntityMO {
 		this.birthday = birthday;
 	}
 
-	public void setAdresse(AddressMO adresse) {
-		this.adresse = adresse;
-	}
-
-	public void setBankAccount(BankAccountMO bankAccount) {
-		this.bankAccount = bankAccount;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 }
