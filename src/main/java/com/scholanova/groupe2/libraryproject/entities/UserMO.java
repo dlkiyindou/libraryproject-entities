@@ -5,7 +5,8 @@ import java.util.Date;
 import javax.persistence.*;
 
 @SuppressWarnings("serial")
-@Entity(name="user")
+@Table(name="user")
+@Entity(name="User")
 public class UserMO extends EntityMO {
 	@Id
 	@GeneratedValue
