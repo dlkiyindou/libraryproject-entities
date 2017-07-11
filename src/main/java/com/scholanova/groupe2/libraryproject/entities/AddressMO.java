@@ -7,8 +7,8 @@ import javax.persistence.*;
 import org.hibernate.annotations.Generated;
 
 @SuppressWarnings("serial")
-@Entity(name="adresse")
-public class AdresseMO extends EntityMO {
+@Entity(name="address")
+public class AddressMO extends EntityMO {
 	@Id
 	@GeneratedValue
 	private Long id;

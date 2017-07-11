@@ -23,7 +23,7 @@ public class UserMO extends EntityMO {
 	private Date birthday;
 	
 	@ManyToOne
-	private AdresseMO adresse;
+	private AddressMO adresse;
 	
 	@OneToOne
 	@Column(name="bank_account_id")
@@ -53,7 +53,7 @@ public class UserMO extends EntityMO {
 		return birthday;
 	}
 
-	public AdresseMO getAdresse() {
+	public AddressMO getAdresse() {
 		return adresse;
 	}
 
@@ -85,7 +85,7 @@ public class UserMO extends EntityMO {
 		this.birthday = birthday;
 	}
 
-	public void setAdresse(AdresseMO adresse) {
+	public void setAdresse(AddressMO adresse) {
 		this.adresse = adresse;
 	}
 
