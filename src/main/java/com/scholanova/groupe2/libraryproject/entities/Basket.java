@@ -5,36 +5,36 @@ import javax.persistence.*;
 @SuppressWarnings("serial")
 @Entity(name= "Basket")
 @Table(name= "basket")
-public class BasketMO extends EntityMO {
+public class Basket extends AbstractEntity {
 
 	@Id
 	@GeneratedValue
 	private Long id;
 	
 	@Column(name="user_id")
-	private UserMO user;
+	private User user;
 	
 	@Column(name="book_id")
-	private BookMO book;
+	private Book book;
 	
 	private Integer quantity;
 	
 	@Column(name="price_id")
-	private PriceMO price;
+	private Price price;
 
-	public UserMO getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(UserMO user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 
-	public BookMO getBook() {
+	public Book getBook() {
 		return book;
 	}
 
-	public void setBook(BookMO book) {
+	public void setBook(Book book) {
 		this.book = book;
 	}
 
@@ -46,11 +46,11 @@ public class BasketMO extends EntityMO {
 		this.quantity = quantity;
 	}
 
-	public PriceMO getPrice() {
+	public Price getPrice() {
 		return price;
 	}
 
-	public void setPrice(PriceMO price) {
+	public void setPrice(Price price) {
 		this.price = price;
 	}
 	

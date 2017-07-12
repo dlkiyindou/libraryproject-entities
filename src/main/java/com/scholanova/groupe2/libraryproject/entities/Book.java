@@ -1,5 +1,5 @@
 package com.scholanova.groupe2.libraryproject.entities;
 
-public class PriceMO extends EntityMO{
+public class Book extends AbstractEntity{
 
 }

@@ -7,7 +7,7 @@ import javax.persistence.*;
 @SuppressWarnings("serial")
 @Table(name="user")
 @Entity(name="User")
-public class UserMO extends EntityMO {
+public class User extends AbstractEntity {
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -24,11 +24,11 @@ public class UserMO extends EntityMO {
 	private Date birthday;
 	
 	@ManyToOne
-	private AddressMO adresse;
+	private Address adresse;
 	
 	@OneToOne
 	@Column(name="bank_account_id")
-	private BankAccountMO bankAccount;
+	private BankAccount bankAccount;
 
 	public Long getId() {
 		return id;
@@ -54,11 +54,11 @@ public class UserMO extends EntityMO {
 		return birthday;
 	}
 
-	public AddressMO getAdresse() {
+	public Address getAdresse() {
 		return adresse;
 	}
 
-	public BankAccountMO getBankAccount() {
+	public BankAccount getBankAccount() {
 		return bankAccount;
 	}
 
@@ -86,11 +86,11 @@ public class UserMO extends EntityMO {
 		this.birthday = birthday;
 	}
 
-	public void setAdresse(AddressMO adresse) {
+	public void setAdresse(Address adresse) {
 		this.adresse = adresse;
 	}
 
-	public void setBankAccount(BankAccountMO bankAccount) {
+	public void setBankAccount(BankAccount bankAccount) {
 		this.bankAccount = bankAccount;
 	}
 

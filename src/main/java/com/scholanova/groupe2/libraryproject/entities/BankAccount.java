@@ -4,8 +4,8 @@ import javax.persistence.*;
 
 @Table(name="bank_account")
 @Entity(name="BankAccount")
-public class BankAccountMO extends EntityMO {
+public class BankAccount extends AbstractEntity {
 	@OneToOne
 	@Column(name="user_id")
-	private UserMO user;
+	private User user;
 }

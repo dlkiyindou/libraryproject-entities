@@ -8,7 +8,7 @@ import javax.persistence.*;
 @SuppressWarnings("serial")
 @Entity(name= "Order")
 @Table(name= "order")
-public class OrderMO extends EntityMO{
+public class Order extends AbstractEntity{
 
 	@Id
 	@GeneratedValue
@@ -18,25 +18,25 @@ public class OrderMO extends EntityMO{
 	private Date orderDate;
 	
 	@Column(name="user_id")
-	private UserMO user;
+	private User user;
 	
 	@Column(name="book_id")
-	private BookMO book;
+	private Book book;
 
 	
-	public UserMO getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(UserMO user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 
-	public BookMO getBook() {
+	public Book getBook() {
 		return book;
 	}
 
-	public void setBook(BookMO book) {
+	public void setBook(Book book) {
 		this.book = book;
 	}
 	

@@ -9,13 +9,13 @@ import org.hibernate.annotations.Generated;
 @SuppressWarnings("serial")
 @Table(name="address")
 @Entity(name="Address")
-public class AddressMO extends EntityMO {
+public class Address extends AbstractEntity {
 	@Id
 	@GeneratedValue
 	private Long id;
 	
 	@OneToMany
-	private Set<UserMO> users;
+	private Set<User> users;
 	
 	private String zipCode;
 	
