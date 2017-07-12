@@ -1,24 +1,30 @@
 package com.scholanova.groupe2.libraryproject.entities;
 
 import javax.persistence.*;
-import javax.persistence.ManyToOne;
 
 @SuppressWarnings("serial")
 @Table(name="bank_account")
 @Entity(name="BankAccount")
 public class BankAccount extends AbstractEntity {
+	@Id
+	@GeneratedValue
+	private Long id;
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
 	
 	private String bic;
 	
+	@Column(name="bank_code")
 	private Short bankCode;
 	
+	@Column(name="agency_code")
 	private Short agencyCode;
 	
+	@Column(name="country_code")
 	private String countryCode;
 	
+	@Column(name="account_number")
 	private String accountNumber;
 	
 	private Short key; 

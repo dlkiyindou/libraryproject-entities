@@ -2,6 +2,7 @@ package com.scholanova.groupe2.libraryproject.entities;
 
 import java.util.Collection;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,10 +22,12 @@ public class Address extends AbstractEntity {
 	@JoinColumn(name="address_id")
 	private Collection<User> users;
 	
+	@Column(name="zip_code")
 	private String zipCode;
 	
 	private String city;
 	
+	@Column(name="street_name")
 	private String streetName;
 	
 	private Integer number;
