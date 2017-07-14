@@ -6,9 +6,6 @@ import javax.persistence.*;
 @Table(name="bank_account")
 @Entity(name="BankAccount")
 public class BankAccount extends AbstractEntity {
-	@Id
-	@GeneratedValue
-	private Long id;
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;

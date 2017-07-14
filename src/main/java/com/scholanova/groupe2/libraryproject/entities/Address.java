@@ -14,10 +14,6 @@ import javax.persistence.Table;
 @Table(name="address")
 @Entity(name="Address")
 public class Address extends AbstractEntity {
-	@Id
-	@GeneratedValue
-	private Long id;
-	
 	@OneToMany
 	@JoinColumn(name="address_id")
 	private Collection<User> users;
@@ -31,10 +27,6 @@ public class Address extends AbstractEntity {
 	private String streetName;
 	
 	private Integer number;
-
-	public Long getId() {
-		return id;
-	}
 
 	public Collection<User> getUsers() {
 		return users;
@@ -54,10 +46,6 @@ public class Address extends AbstractEntity {
 
 	public Integer getNumber() {
 		return number;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public void setUsers(Collection<User> users) {
