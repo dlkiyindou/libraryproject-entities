@@ -1,67 +1,56 @@
 package com.scholanova.groupe2.libraryproject.entities;
 
-import java.util.Collection;
+import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+
+import org.hibernate.annotations.Generated;
 
 @SuppressWarnings("serial")
 @Table(name="address")
 @Entity(name="Address")
 public class Address extends AbstractEntity {
-	@OneToMany
-	@JoinColumn(name="address_id")
-	private Collection<User> users;
+	@Id
+	@GeneratedValue
+	private Long id;
 	
-	@Column(name="zip_code")
+	@OneToMany
+	private Set<User> users;
+	
 	private String zipCode;
 	
 	private String city;
 	
-	@Column(name="street_name")
 	private String streetName;
 	
 	private Integer number;
 
-	public Collection<User> getUsers() {
-		return users;
-	}
-
 	public String getZipCode() {
 		return zipCode;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public String getStreetName() {
-		return streetName;
-	}
-
-	public Integer getNumber() {
-		return number;
-	}
-
-	public void setUsers(Collection<User> users) {
-		this.users = users;
 	}
 
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
 
+	public String getCity() {
+		return city;
+	}
+
 	public void setCity(String city) {
 		this.city = city;
 	}
 
+	public String getStreetName() {
+		return streetName;
+	}
+
 	public void setStreetName(String streetName) {
 		this.streetName = streetName;
+	}
+
+	public Integer getNumber() {
+		return number;
 	}
 
 	public void setNumber(Integer number) {

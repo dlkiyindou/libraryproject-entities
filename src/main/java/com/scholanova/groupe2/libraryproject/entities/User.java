@@ -3,12 +3,14 @@ package com.scholanova.groupe2.libraryproject.entities;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,6 +19,11 @@ import javax.persistence.TemporalType;
 @Table(name="user")
 @Entity(name="User")
 public class User extends AbstractEntity {
+
+	@Id
+	@GeneratedValue
+	private Long id;
+	
 	private String firstname;
 	
 	private String lastname;
@@ -39,6 +46,13 @@ public class User extends AbstractEntity {
 	public Collection<BankAccount> getBankAccounts() {
 		return bankAccounts;
 	}
+
+	private Address adresse;
+	
+	@OneToOne
+	@Column(name="bank_account_id")
+	private BankAccount bankAccount;
+
 
 	public void setBankAccounts(Collection<BankAccount> bankAccounts) {
 		this.bankAccounts = bankAccounts;
@@ -64,8 +78,20 @@ public class User extends AbstractEntity {
 		return birthday;
 	}
 
+
 	public Address getAddress() {
 		return address;
+	}
+	public Address getAdresse() {
+		return adresse;
+	}
+
+	public BankAccount getBankAccount() {
+		return bankAccount;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public void setFirstname(String firstname) {
@@ -88,8 +114,17 @@ public class User extends AbstractEntity {
 		this.birthday = birthday;
 	}
 
+
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	
+	public void setAdresse(Address adresse) {
+		this.adresse = adresse;
+	}
+
+	public void setBankAccount(BankAccount bankAccount) {
+		this.bankAccount = bankAccount;
 	}
 
 }
