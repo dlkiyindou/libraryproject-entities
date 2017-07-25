@@ -4,7 +4,13 @@ import java.util.Date;
 
 import javax.persistence.*;
 
-public class LendingMO {
+@SuppressWarnings("serial")
+@Table(name="lending")
+@Entity(name="lending")
+public class Lending extends AbstractEntity {
+	@Id
+	@GeneratedValue
+	private long id;
 	
 	private long idBook;
 	
