@@ -2,18 +2,15 @@ package com.scholanova.groupe2.libraryproject.entities;
 
 import java.util.Set;
 
-import javax.persistence.*;
-
-import org.hibernate.annotations.Generated;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @SuppressWarnings("serial")
 @Table(name="address")
 @Entity(name="Address")
 public class Address extends AbstractEntity {
-	@Id
-	@GeneratedValue
-	private Long id;
-	
+
 	@OneToMany
 	private Set<User> users;
 	

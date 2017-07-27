@@ -1,6 +1,14 @@
 package com.scholanova.groupe2.libraryproject.entities;
 
-import javax.persistence.*;
+import java.util.Collection;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @SuppressWarnings("serial")
 @Entity(name= "Basket")
@@ -11,15 +19,18 @@ public class Basket extends AbstractEntity {
 	@GeneratedValue
 	private Long id;
 	
-	@Column(name="user_id")
+	@OneToOne
+	@JoinColumn(name="user_id")
 	private User user;
 	
-	@Column(name="book_id")
-	private Book book;
+	@OneToMany
+	@JoinColumn(name="book_id")
+	private Collection<Book> books;
 	
 	private Integer quantity;
 	
-	@Column(name="price_id")
+	@OneToOne
+	@JoinColumn(name="price_id")
 	private Price price;
 
 	public User getUser() {
@@ -30,12 +41,12 @@ public class Basket extends AbstractEntity {
 		this.user = user;
 	}
 
-	public Book getBook() {
-		return book;
+	public Collection<Book> getBooks() {
+		return books;
 	}
 
-	public void setBook(Book book) {
-		this.book = book;
+	public void setBooks(Collection<Book> books) {
+		this.books = books;
 	}
 
 	public Integer getQuantity() {

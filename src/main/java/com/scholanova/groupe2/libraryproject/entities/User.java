@@ -19,10 +19,6 @@ import javax.persistence.TemporalType;
 @Table(name="user")
 @Entity(name="User")
 public class User extends AbstractEntity {
-
-	@Id
-	@GeneratedValue
-	private Long id;
 	
 	private String firstname;
 	
@@ -79,10 +75,6 @@ public class User extends AbstractEntity {
 	}
 	public Address getAdresse() {
 		return adresse;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public void setFirstname(String firstname) {
