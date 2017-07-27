@@ -6,7 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -22,26 +22,21 @@ public class Book extends AbstractEntity {
 	@GeneratedValue
 	private Long id;
 	
-	@ManyToMany
 	@Column(name="author_id")
 	private User author;
 	
-	@OneToOne
 	@Column(name="title")
 	private String title;
 	
-	@OneToMany
 	@Column(name="genre")
 	private String genre;
 		
 	@Temporal(TemporalType.DATE)
 	private Date yearPublication;
 	
-	@OneToOne
 	@Column(name="summary")
 	private String summary;
 	
-	@OneToOne
 	@Column(name="barcode")
 	private String barcode;
 

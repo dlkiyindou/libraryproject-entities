@@ -49,11 +49,6 @@ public class User extends AbstractEntity {
 
 	private Address adresse;
 	
-	@OneToOne
-	@Column(name="bank_account_id")
-	private BankAccount bankAccount;
-
-
 	public void setBankAccounts(Collection<BankAccount> bankAccounts) {
 		this.bankAccounts = bankAccounts;
 	}
@@ -84,10 +79,6 @@ public class User extends AbstractEntity {
 	}
 	public Address getAdresse() {
 		return adresse;
-	}
-
-	public BankAccount getBankAccount() {
-		return bankAccount;
 	}
 
 	public void setId(Long id) {
@@ -122,9 +113,4 @@ public class User extends AbstractEntity {
 	public void setAdresse(Address adresse) {
 		this.adresse = adresse;
 	}
-
-	public void setBankAccount(BankAccount bankAccount) {
-		this.bankAccount = bankAccount;
-	}
-
 }
